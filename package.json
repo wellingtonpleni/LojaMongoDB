@@ -1,0 +1,15 @@
+{
+  "name": "lojamongodb",
+  "version": "1.0.0",
+  "description": "Backend mongoDB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "MongoDB",
+    "noSQL"
+  ],
+  "author": "Wellington",
+  "license": "MIT"
+}
