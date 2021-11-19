@@ -1,0 +1,46 @@
+//Teste de Requisições REST - Estudantes
+@baseURL = http://localhost:4000
+@id = 619812abc56ca233e4d118d5
+###
+// GET - Lista todos os produtos
+GET {{baseURL}}/produtos
+Content-Type: application/json
+
+###
+// GET - Lista apenas um produto pelo id
+GET {{baseURL}}/produtos/{{id}}
+Content-Type: application/json
+
+###
+// POST - Inclui um novo produto
+POST {{baseURL}}/produtos
+Content-Type: application/json
+
+{
+   "nome":"Mi Note 10",
+   "categoria":"Smartphone",
+   "marca":"Xiaomi",
+   "quantidade":17,
+   "preco":2599.90
+}
+
+### 
+// DELETE - Apaga um produto através do id informado
+DELETE {{baseURL}}/produtos/{{id}}
+Content-Type: application/json
+
+###
+// PUT - Altera um produto pelo ID
+PUT {{baseURL}}/produtos/
+Content-Type: application/json
+
+{
+    "_id": "61982b596944f214cb81947b", 
+    "nome":"Mi Note 10 Plus",
+    "categoria":"Smartphone",
+    "marca":"Xiaomi",
+    "quantidade":21,
+    "preco":2699.90
+}
+
+

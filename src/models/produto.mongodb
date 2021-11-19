@@ -1,0 +1,59 @@
+//Selecione o database
+use('LabBD')
+
+// Remove a collection
+db.produtos.drop() 
+
+//Cria a collection com a validação do schema
+db.createCollection('produtos', {
+    validator: {
+       $jsonSchema: {
+          bsonType: 'object',
+          required: [ 'nome', 'categoria', 'marca', 'quantidade', 'preco' ],
+          properties: {
+             nome: {
+                bsonType: 'string',
+                description: 'Nome do produto é obrigatório'
+             },
+             categoria: {
+                bsonType: 'string',
+                description: 'Categoria do produto é obrigatório'
+             },
+             marca: {
+                bsonType: 'string',
+                description: 'A marca do produto é obrigatório'
+             },
+             quantidade: {
+                bsonType: 'int',
+                description: 'A quantidade deve ser um valor numérico inteiro'
+             },
+             preco: {
+                bsonType: [ 'double' ],
+                description: 'O preço deve ser um valor numérico'
+            }
+          }
+       }
+    },
+    validationLevel: 'strict', //moderate or off
+    validationAction: 'error' //warn
+ })
+
+//Insere um novo registro
+db.produtos.insertOne({
+   'nome':'Galaxy Note 10 Plus',
+   'categoria':'Smartphone',
+   'marca':'Samsung',
+   'quantidade':5,
+   'preco': 3899.90
+})
+
+//Lista todos os registros
+db.produtos.find()
+//Lista um registro pelo Id
+db.produtos.find({"_id": {$eq: ObjectId("6198120e10befe82f4cf7308")}})
+
+/*
+Saiba mais em: https://docs.mongodb.com/manual/core/schema-validation/
+*/
+
+db.produtos.find({nome: /iphone/i})
