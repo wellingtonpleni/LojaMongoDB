@@ -1,4 +1,4 @@
-//Teste de Requisições REST - Estudantes
+//Teste de Requisições REST - Produtos
 @baseURL = https://lojalabbd.herokuapp.com
 @id = 619812abc56ca233e4d118d5
 ###
